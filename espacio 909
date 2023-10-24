@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Sequence Generator</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background: url('your-background-image.jpg') center center fixed; /* Replace 'your-background-image.jpg' with the path to your background image */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: black; /* Change text color to black for better visibility */
+        }
+
+        #text-container {
+            text-align: center;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        #elevator-container {
+            margin-top: 20px;
+            position: relative;
+            display: none;
+        }
+
+        #elevator {
+            width: 100px;
+            height: 150px;
+            background-color: #8b0000; /* Deep dark red */
+            border-radius: 5px;
+            position: relative;
+        }
+
+        #button {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4285f4;
+            color: #fff;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="text-container">
+        <p id="text"></p>
+    </div>
+
+    <div id="elevator-container">
+        <div id="elevator">
+            <div id="button" onclick="openElevator()">Hace click</div>
+        </div>
+    </div>
+
+    <script>
+        const textSequence = [
+            "Hola, acá nos podemos comunicar apretando la tecla espacio en tu computadora/ordenador únicamente.",
+            "Gracias por entrar a este espacio.",
+            "Archivo 909 te da la bienvenida.",
+            "Si puedes, dejá el celular o apágalo, baja el sonido de tus notificaciones por un minuto.",
+            "Nada va a pasar.",
+            "Este es tu espacio seguro, tranquilo/a.",
+            "Me gustaría que te tomes el tiempo de permanecer acá un rato y quedarte en silencio.",
+            "Hablamos con la barra de espacio.",
+            "Respira.",
+            "No, enserio.",
+            "Otra vez, ya casi estamos.",
+            "Quiero decirte que, aunque la revista se lea de manera virtual, te quiero felicitar por darte un tiempo para disfrutar y al mismo tiempo aprender y nutrir la mente.",
+            "Espero que en las páginas de la revista encuentres refugio e inspiración.",
+            "Ese es el objetivo.",
+            "Ya sea que sientas pasión por",
+            "la música.",
+            "la fotografía.",
+            "la filosofía.",
+            "o el cine.",
+            "Me alegro de que estés acá.",
+            "Te veo, te escucho, y si algún día me querés recomendar una canción.",
+            "una película",
+            "un libro",
+            "un fotógrafo",
+            "un filósofo",
+            "o queres que yo te recomiende algo.",
+            "queres hablarme sobre un artista",
+            "queres debatir sobre algún tema artístico",
+            "te sentís bloqueado/a creativamente",
+            "escribime @archivo909",
+            "no prometo responder de manera rápida.",
+            "pero prometo responder.",
+            "gracias por leerme",
+            "saludos, archivo 909",
+            "feliz halloween muajaja."
+        ];
+
+        let currentIndex = 0;
+
+        // Display the current text
+        function showCurrentText() {
+            const textElement = document.getElementById('text');
+            textElement.textContent = textSequence[currentIndex];
+        }
+
+        // Bind space bar key press event to show the next text
+        document.addEventListener('keyup', function (event) {
+            if (event.key === ' ') {
+                if (currentIndex < textSequence.length - 1) {
+                    currentIndex++;
+                    showCurrentText();
+                } else {
+                    // Display elevator and button after the last text
+                    document.getElementById('elevator-container').style.display = 'block';
+                }
+            }
+        });
+
+        // Display initial text
+        showCurrentText();
+
+        // Function to open the elevator (reveal video)
+        function openElevator() {
+            document.getElementById('button').style.display = 'none';
+            // Add code to reveal the video or redirect to the YouTube link
+            window.location.href = 'https://www.youtube.com/watch?v=oo8tfJ2jz_Y';
+        }
+    </script>
+</body>
+</html>
+
